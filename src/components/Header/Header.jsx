@@ -1,7 +1,6 @@
 
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { GiMushroomHouse } from "react-icons/gi";
-import userProfile from '../../assets/userProfile.png'
 import { useContext } from "react";
 import { authContext } from "../../Providers/AuthProviders";
 import { ToastContainer, toast } from "react-toastify";
@@ -75,10 +74,6 @@ const Header = () => {
                 <img className='h-12 w-12 rounded-full' src={user.photoURL} alt="" />
                 <button className="bg-gradient-to-r from-accent-content via-gray-900 to-gray-900 text-white rounded px-9 mt-1" onClick={handleLogout}>logout</button>
               </div> :
-                // <div className='flex gap-3'>
-                //    <img className='h-10' src={userProfile} alt="" />
-                //     <Link to='/login'><button className="bg-gradient-to-r from-accent-content via-gray-900 to-gray-900 p-2 w-20 rounded text-white">Login</button></Link>
-                //   </div>
                 <div>
                   {user ? (
                     <div className="flex items-center gap-4">
