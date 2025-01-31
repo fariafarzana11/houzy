@@ -7,11 +7,11 @@ const HouseDetails = () => {
   console.log(house)
 
 
-  const navigate = useNavigate(); 
-    
-    const goToHome = () => {
-        navigate("/"); 
-    }
+  const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/");
+  }
 
   return (
     <div className="max-w-6xl mx-auto">
