@@ -7,9 +7,17 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_projectId,
   storageBucket: import.meta.env.VITE_storageBucket,
   messagingSenderId: import.meta.env.VITE_messagingSenderId,
-  appId: import.meta.env.ITE_appId
+  appId: import.meta.env.VITE_appId
 };
+console.log("Firebase API Key:", import.meta.env.VITE_apiKey);
 
 const app = initializeApp(firebaseConfig);
 
 export default app;
+
+
+
+
+
+
+
