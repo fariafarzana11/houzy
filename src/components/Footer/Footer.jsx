@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto mt-20">
             <footer className="footer sm:footer-horizontal bg-gray-900 p-20 text-white">
                 <nav>
-                    <h6 className="flex items-center gap-1"><GiMushroomHouse className="text-accent-content text-lg"/><span className="text-lg font-bold">Houzy</span></h6>
+                    <h6 className="flex items-center gap-1"><GiMushroomHouse className="text-accent-content text-lg" /><span className="text-lg font-bold">Houzy</span></h6>
                     <p className="text-gray-400 mt-2 ml-5">
                         The world’s first and largest digital <br /> market for crypto collectibles.
                     </p>
@@ -23,7 +23,6 @@ const Footer = () => {
                         <span>Example@example.com</span>
                     </p>
                 </nav>
-
                 <nav>
                     <h6 className="text-lg font-bold">Services</h6>
                     <a className="link link-hover text-gray-400">Apartment for Rent</a>
@@ -31,7 +30,6 @@ const Footer = () => {
                     <a className="link link-hover text-gray-400">Offices for Buy</a>
                     <a className="link link-hover text-gray-400">Offices for Rent</a>
                 </nav>
-
                 <nav>
                     <h6 className="text-lg font-bold">Quick Links</h6>
                     <a className="link link-hover text-gray-400">About Us</a>
@@ -39,7 +37,6 @@ const Footer = () => {
                     <a className="link link-hover text-gray-400">Service Details</a>
                     <a className="link link-hover text-gray-400">Add Listing</a>
                 </nav>
-
                 <nav>
                     <h6 className="text-lg font-bold">Contact</h6>
                     <a className="link link-hover text-gray-400">Help/FAQ</a>
