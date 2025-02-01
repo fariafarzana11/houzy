@@ -42,7 +42,7 @@ function AddressMap() {
   }, [address]);
 
   return (
-    <div className="flex flex-row gap-20 mt-30 ml-[320px]">
+    <div className=" max-w-7xl mx-auto mt-30 grid lg:grid-cols-2 grid-cols-1">
       <div className="flex flex-col mt-10">
         <div>
           <h1 className="text-5xl font-bold mb-4">We Are Available<br /> For You 24/7</h1>
@@ -54,8 +54,8 @@ function AddressMap() {
           <button type="button" className='text-center p-3 w-30 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white font-bold rounded-lg'>Details </button>
         </div>
       </div>
-      <div>
-        <MapContainer center={position} zoom={13} style={{ height: '400px', width: '700px' }}>
+      <div className=''>
+        <MapContainer center={position} zoom={13} style={{ height: '400px', width: '600px' }}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

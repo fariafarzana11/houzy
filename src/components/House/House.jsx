@@ -5,11 +5,12 @@ const House = ({ house }) => {
   const { house_title, image, description, rent, _id } = house;
 
   return (
-    <div className="card bg-base-100 w-96 shadow-md rounded-lg overflow-hidden">
+    <div className="">
+     <div className="card bg-base-100 w-96 shadow-md rounded-lg overflow-hidden">
       <figure className="h-48">
         <img src={image} alt="house" className="w-full h-full object-cover rounded-t-lg" />
       </figure>
-      <div className="card-body p-5">
+      <div className="card-body p-5 h-60 ">
         <h2 className="card-title text-xl font-bold">{house_title}</h2>
         <p className="text-lg font-semibold">Rent: {rent}</p>
         <p className="text-gray-600">
@@ -24,6 +25,8 @@ const House = ({ house }) => {
         </div>
       </div>
     </div>
+    </div>
+   
   );
 };
 
