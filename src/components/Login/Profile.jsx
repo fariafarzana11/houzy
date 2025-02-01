@@ -1,51 +1,35 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { authContext } from "../../Providers/AuthProviders";
-import { updateProfile } from "firebase/auth";
+import { updateProfile, getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"; // Firebase Storage
 
 const Profile = () => {
     const { user, setUser } = useContext(authContext);
     const [name, setName] = useState(user?.displayName || "");
     const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
-    const [imageFile, setImageFile] = useState(null);
 
-    // Firebase Storage setup
-    const storage = getStorage();
-
-    const handleImageUpload = async (file) => {
-        const storageRef = ref(storage, `profile_pics/${user.uid}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                // You can add a loading progress bar here if you want
-            },
-            (error) => {
-                toast.error("Failed to upload image.");
-                console.error(error);
-            },
-            async () => {
-                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                setPhotoURL(downloadURL);
-                toast.success("Image uploaded successfully!");
-            }
-        );
-    };
+    useEffect(() => {
+        if (!user) {
+            const auth = getAuth();
+            const currentUser = auth.currentUser;
+            setUser(currentUser);
+        }
+    }, [user, setUser]);
 
     const handleUpdate = async () => {
         if (!user) return;
 
         try {
-            // If there's a new image file, upload it first
-            if (imageFile) {
-                await handleImageUpload(imageFile);
-            }
+            const auth = getAuth();
+            const firebaseUser = auth.currentUser;
 
-            await updateProfile(user, { displayName: name, photoURL });
-            setUser({ ...user, displayName: name, photoURL });
-            toast.success("Profile updated successfully!");
+            if (firebaseUser) {
+                await updateProfile(firebaseUser, { displayName: name, photoURL });
+                setUser({ ...firebaseUser, displayName: name, photoURL });
+                toast.success("Profile updated successfully!");
+            } else {
+                toast.error("No valid user found.");
+            }
         } catch (error) {
             toast.error("Failed to update profile");
             console.error(error);
@@ -63,12 +47,6 @@ const Profile = () => {
                         alt="Profile"
                         className="w-24 h-24 rounded-full mb-3"
                     />
-                    {/* <input
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => setImageFile(e.target.files[0])}
-                        className="mt-2"
-                    /> */}
                 </div>
 
                 <div className="form-control">

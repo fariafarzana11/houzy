@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Header = () => {
   const location = useLocation()
-  console.log(location)
+  //console.log(location)
 
   const { user, logout } = useContext(authContext)
 
