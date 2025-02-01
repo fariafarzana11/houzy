@@ -12,7 +12,7 @@ L.Marker.prototype.options.icon = L.icon({
   shadowUrl: markerShadowPng,
 });
 
-function AddressMap() {
+function Location() {
   const [position, setPosition] = useState([40.7128, -74.006]);
   const address = "86 Road Brooklyn Street, New York, USA";
 
@@ -55,7 +55,7 @@ function AddressMap() {
         </div>
       </div>
       <div className=''>
-        <MapContainer center={position} zoom={13} style={{ height: '400px', width: '600px' }}>
+        <MapContainer center={position} zoom={13} style={{ height: '400px', width: '500px' }}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -71,4 +71,4 @@ function AddressMap() {
   );
 }
 
-export default AddressMap;
+export default Location;

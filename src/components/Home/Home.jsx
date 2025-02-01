@@ -14,7 +14,7 @@ const Home = () => {
             <ApartmentCard></ApartmentCard>
             <Review></Review>
             <Contact></Contact>
-            <Location></Location>
+           <Location></Location> 
         </div>
     )
 }
