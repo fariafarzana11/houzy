@@ -29,6 +29,13 @@ const Header = () => {
       <li><NavLink to="/blogs" className="text-gray-900 font-bold text-lg"> Blog </NavLink></li>
       <li> <NavLink to="/services" className="text-gray-900 font-bold text-lg"> Service </NavLink></li>
       <li> <NavLink to="/Contact" className="text-gray-900 font-bold text-lg" > Contact</NavLink></li>
+      {user && (
+        <li>
+          <NavLink to="/profile" className="text-gray-900 font-bold text-lg bg-white px-3 py-1 rounded">
+            Updated Profile
+          </NavLink>
+        </li>
+      )}
     </>
   );
 

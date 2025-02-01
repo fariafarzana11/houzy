@@ -9,6 +9,7 @@ import About from './components/About/About'
 import Register from './components/Login/Register'
 import Login from './components/Login/Login'
 import PrivateRoute from './Routes/PrivateRoute'
+import Profile from './components/Login/Profile'
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
         {
           path:'/login',
           element:<Login></Login>
+        },
+        {
+          path:'/profile',
+          element:<PrivateRoute><Profile></Profile></PrivateRoute>
         },
         {
           path:'/register',
