@@ -4,7 +4,7 @@ const HouseDetails = () => {
   const house = useLoaderData();
 
   const { house_title, segment_name, area, facilities, description, location, rent, image } = house;
-  console.log(house)
+ 
 
 
   const navigate = useNavigate();

@@ -19,7 +19,7 @@ const Register = () => {
         const email = form.get("email");
         const password = form.get("password");
 
-        console.log(name, image, email, password);
+    
 
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
@@ -27,21 +27,19 @@ const Register = () => {
         }
 
         try {
-            // Register user
+            
             const result = await createUser(email, password);
-            console.log(result.user);
+            // console.log(result.user);
 
-            // Update user profile with name and image
             await updateProfile(result.user, {
                 displayName: name,
                 photoURL: image,
             });
 
-            // Log the user in immediately after registration
             await login(email, password);
 
             toast.success("Registration Successful!");
-            navigate("/login");  // Redirect to login after successful registration
+            navigate('/login')
         } catch (err) {
             console.error("Error:", err.message);
             toast.error(err.message);

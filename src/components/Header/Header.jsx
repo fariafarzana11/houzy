@@ -9,10 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Header = () => {
   const location = useLocation()
-  //console.log(location)
 
   const { user, logout } = useContext(authContext)
-
 
   const handleLogout = () => {
     logout()
@@ -77,19 +75,25 @@ const Header = () => {
         <div className="navbar-end">
           <div className='flex gap-2'>
             {
-              user ? <div className='flex gap-3'>
-                <img className='h-12 w-12 rounded-full' src={user.photoURL} alt="" />
-                <button className="bg-gradient-to-r from-accent-content via-gray-900 to-gray-900 text-white rounded px-9 mt-1" onClick={handleLogout}>logout</button>
-              </div> :
-                <div>
-                  {user ? (
-                    <div className="flex items-center gap-4">
-                      <img src={user.photoURL} alt="Profile" className="w-10 h-10 rounded-full border-2 border-gray-300" />
-                    </div>
-                  ) : (
-                    <Link to='/login'><button className="bg-gradient-to-r from-accent-content via-gray-900 to-gray-900 p-2 w-30 rounded text-white">Login</button></Link>
-                  )}
+              user ? (
+                <div className="flex gap-3 relative group">
+                  <img
+                    className="h-12 w-12 rounded-full border-2 border-gray-300 cursor-pointer"
+                    src={user.photoURL}
+                    alt="Profile"
+                  />
+                  <span className="absolute mt-14 bg-gray-800 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100">
+                    {user.displayName}
+                  </span>
+                  <button className="bg-gradient-to-r from-accent-content via-gray-900 to-gray-900 text-white rounded px-9 mt-1" onClick={handleLogout}>
+                    Logout
+                  </button>
                 </div>
+              ) : (
+                <Link to="/login">
+                  <button className="bg-gradient-to-r from-accent-content via-gray-900 to-gray-900 p-2 w-30 rounded text-white">Login</button>
+                </Link>
+              )
             }
           </div>
         </div>

@@ -15,7 +15,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("User state updated:", user);
+        // console.log("User state updated:", user);
     }, [user]);
 
     const handleSubmit = (e) => {
@@ -27,7 +27,7 @@ const Login = () => {
         login(email, password)
             .then((result) => {
                 toast.success("Login Successfully");
-                console.log("Logged-in user:", result.user);
+                // console.log("Logged-in user:", result.user);
                 navigate("/");
             })
             .catch((err) => {
@@ -56,7 +56,7 @@ const Login = () => {
            await signInWithPopup(auth, githubProvider)
                 // const githubUser = result.user;
                 // setUser(githubUser)
-                // console.log(githubUser)
+               
                 toast.success("Google login successful!");
                 navigate("/");
         }catch (error) {
